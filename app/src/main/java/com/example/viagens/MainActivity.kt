@@ -6,10 +6,14 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavType
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.example.viagens.ui.theme.ViagensTheme
 
 class MainActivity : ComponentActivity() {
@@ -22,7 +26,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Greeting("Android")
+                    MyApp()
                 }
             }
         }
@@ -30,14 +34,39 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
+fun MyApp(){
+    val navController = rememberNavController()
+    NavHost(navController = navController, startDestination = "home"){
+        composable("home"){
+            HomeScreen(onNavigateHome = {
+                navController.navigate("form1")
+            })
+        }
+        composable("form1"){
+            Form1Screen(onBack = {
+                navController.navigateUp()
+            },
+                onNavigateForm1 = {
+                    navController.navigate("Form2/${it}")
+                }
+            )
+        }
+        composable("form2/{nome}",
+            arguments = listOf(
+                navArgument("nome") { type = NavType.StringType}
+            )
+        ){
+            val param = it.arguments?.getString("nome")
+            Form2Screen(param)
+        }
+
+    }
 }
 
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
     ViagensTheme {
-        Greeting("Android")
+        MyApp()
     }
 }

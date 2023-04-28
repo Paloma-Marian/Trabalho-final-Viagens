@@ -12,6 +12,26 @@
         android:theme="@style/Theme.Viagens"
         tools:targetApi="31">
         <activity
+            android:name=".Tela1"
+            android:exported="false"
+            android:label="@string/title_activity_tela1"
+            android:theme="@style/Theme.Viagens" />
+        <activity
+            android:name=".Form2Screen"
+            android:exported="false"
+            android:label="@string/title_activity_form2_screen"
+            android:theme="@style/Theme.Viagens" />
+        <activity
+            android:name=".Form1Screen"
+            android:exported="false"
+            android:label="@string/title_activity_form1_screen"
+            android:theme="@style/Theme.Viagens" />
+        <activity
+            android:name=".HomeScreen"
+            android:exported="false"
+            android:label="@string/title_activity_home_screen"
+            android:theme="@style/Theme.Viagens" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"

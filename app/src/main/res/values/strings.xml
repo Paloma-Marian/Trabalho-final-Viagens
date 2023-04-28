@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Viagens</string>
+    <string name="title_activity_home_screen">HomeScreen</string>
+    <string name="title_activity_form1_screen">Form1Screen</string>
+    <string name="title_activity_form2_screen">Form2Screen</string>
+    <string name="title_activity_tela1">Tela1</string>
 </resources>

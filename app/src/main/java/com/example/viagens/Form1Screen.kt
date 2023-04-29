@@ -34,7 +34,7 @@ fun Form1Screen(onNavigateForm1: (nome: String) -> Unit, onBack: () -> Unit) {
             Text(text = "Back")
         }
         Button(onClick = { onNavigateForm1(nome.value) }) {
-            Text("Form 1")
+            Text("Form 2")
         }
     }
 }

@@ -27,28 +27,28 @@ fun Form2Screen(param: String?) {
         bottomBar = {
             BottomNavigation() {
                 BottomNavigationItem(
-                    selected = true,
-                    onClick = { navController.navigate("Tela1") },
+                    selected = false,
+                    onClick = { navController.navigate("Novo") },
                     label = {
-                        Text(text = "Tela 1")
+                        Text(text = "Novo")
                     },
                     icon = { Icon(Icons.Filled.Add, contentDescription = "")
                     })
                 BottomNavigationItem(
-                    selected = false,
-                    onClick = { navController.navigate("Tela2") },
+                    selected = true,
+                    onClick = { navController.navigate("Viagens") },
                     label = {
-                        Text(text = "Tela 2")
+                        Text(text = "Viagens")
                     },
-                    icon = { Icon(Icons.Filled.AccountBox, contentDescription = "")
+                    icon = { Icon(Icons.Filled.Home, contentDescription = "")
                     })
                 BottomNavigationItem(
                     selected = false,
-                    onClick = { navController.navigate("Tela3") },
+                    onClick = { navController.navigate("Sobre") },
                     label = {
-                        Text(text = "Tela 3")
+                        Text(text = "Sobre")
                     },
-                    icon = { Icon(Icons.Filled.Home, contentDescription = "")
+                    icon = { Icon(Icons.Filled.AccountBox, contentDescription = "")
                     })
 
 
@@ -56,16 +56,16 @@ fun Form2Screen(param: String?) {
         }
     ){
         NavHost(navController = navController
-            , startDestination = "Tela1",
+            , startDestination = "Viagens",
             modifier = Modifier.padding(paddingValues = it)
         ) {
-            composable("Tela1") {
+            composable("Novo") {
                 Tela1()
             }
-            composable("Tela2") {
+            composable("Viagens") {
                 Tela2()
             }
-            composable("tela3") {
+            composable("Sobre") {
                 Tela3()
             }
         }

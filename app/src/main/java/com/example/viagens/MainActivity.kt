@@ -38,20 +38,15 @@ fun MyApp(){
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = "home"){
         composable("home"){
-            HomeScreen(onNavigateHome = {
-                navController.navigate("form1")
-            })
-        }
-        composable("form1"){
-            Form1Screen(onBack = {
+            HomeScreen(onBack = {
                 navController.navigateUp()
             },
-                onNavigateForm1 = {
+                onNavigateHome = {
                     navController.navigate("Form2/${it}")
                 }
             )
         }
-        composable("form2/{nome}",
+        composable("Form2/{nome}",
             arguments = listOf(
                 navArgument("nome") { type = NavType.StringType}
             )

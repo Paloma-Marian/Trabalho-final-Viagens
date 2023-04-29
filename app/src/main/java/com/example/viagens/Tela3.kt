@@ -5,5 +5,5 @@ import androidx.compose.runtime.Composable
 
 @Composable
 fun Tela3() {
-    Text(text = "Tela3")
+    Text(text = "Paloma Souza Marian")
 }

@@ -36,17 +36,17 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MyApp(){
     val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = "home"){
-        composable("home"){
+    NavHost(navController = navController, startDestination = "login"){
+        composable("login"){
             HomeScreen(onBack = {
                 navController.navigateUp()
             },
                 onNavigateHome = {
-                    navController.navigate("Form2/${it}")
+                    navController.navigate("Viagens/${it}")
                 }
             )
         }
-        composable("Form2/{nome}",
+        composable("Viagens/{nome}",
             arguments = listOf(
                 navArgument("nome") { type = NavType.StringType}
             )

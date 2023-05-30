@@ -1,4 +1,4 @@
-package com.example.viagens
+package com.example.viagens.Screen
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -9,32 +9,35 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 
 @Composable
-fun Form1Screen(onNavigateForm1: (nome: String) -> Unit, onBack: () -> Unit) {
-    val nome = remember {
-        mutableStateOf("TESTE")
-    }
+fun HomeScreen(onNavigateHome: (usuario: String) -> Unit, onBack: () -> Unit)  {
+    val usuario = remember { mutableStateOf("TESTE")}
+    val senha = remember { mutableStateOf("TESTE")}
     Column(modifier = Modifier
         .fillMaxSize()
-        .background(Color.Gray)){
+        .background(Color.Gray),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ){
 
         Text(
-            text = "Form 1",
+            text = "Entrar na Central de Viagens",
             textAlign = TextAlign.Center
         )
-        OutlinedTextField(value = nome.value,
+        OutlinedTextField(value = usuario.value,
             onValueChange = {
-                nome.value = it
+                usuario.value = it
             })
-        Button(onClick = { onBack }) {
-            Text(text = "Back")
-        }
-        Button(onClick = { onNavigateForm1(nome.value) }) {
-            Text("Form 2")
+        OutlinedTextField(value = senha.value,
+            onValueChange = {
+                senha.value = it
+            })
+        Button(onClick = { onNavigateHome(usuario.value) }) {
+            Text("OK")
         }
     }
 }

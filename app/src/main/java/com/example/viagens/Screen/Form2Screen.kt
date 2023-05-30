@@ -60,13 +60,13 @@ fun Form2Screen(param: String?) {
             modifier = Modifier.padding(paddingValues = it)
         ) {
             composable("Novo") {
-                Tela1()
+                NovaViagem()
             }
             composable("Viagens") {
-                Tela2()
+                Viagem()
             }
             composable("Sobre") {
-                Tela3()
+                Sobre()
             }
         }
     }

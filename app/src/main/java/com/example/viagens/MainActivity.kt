@@ -71,7 +71,7 @@ fun MyApp(){
                     navController.navigateUp()
                     coroutineScope.launch {
                         scaffoldState.snackbarHostState.showSnackbar(
-                            message = "User registered"
+                            message = "Usuário registrado"
                         )
                     }
                 },

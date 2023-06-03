@@ -23,36 +23,18 @@ import kotlinx.coroutines.launch
 //esses on.. server pra o navegate
 @Composable
 fun LoginScreen(onNavigateHome: (usuario: String) -> Unit, onBack: () -> Unit, onNavigateNovo: () -> Unit)  {
-    val usuario = remember { mutableStateOf("TESTE")}
-    val senha = remember { mutableStateOf("TESTE")}
     Column(modifier = Modifier
         .fillMaxSize()
         .background(Color.Gray),
         horizontalAlignment = Alignment.CenterHorizontally
     ){
-
-        val navController = rememberNavController()
-
-        Text(
-            text = "Entrar na Central de Viagens",
-            textAlign = TextAlign.Center
-        )
-        OutlinedTextField(value = usuario.value,
-            onValueChange = {
-                usuario.value = it
-            })
-        OutlinedTextField(value = senha.value,
-            onValueChange = {
-                senha.value = it
-            })
-
-        //Chama Tela de novo Usuario
+        //registrar novo Usuario
         Button(onClick = { onNavigateNovo() }) {
-            Text(text = "Novo")
+            Text(text = "Cadastro no sistema")
         }
 
         //Valida usuario e loga no sistema
-        Button(onClick = { onNavigateHome(usuario.value) }) {
+        Button(onClick = { onNavigateHome("") }) {
             Text("OK")
         }
     }

@@ -1,4 +1,4 @@
-package com.example.viagens
+package com.example.viagens.Screen
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.BottomNavigation
@@ -15,9 +15,10 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.viagens.NovaViagem
 
 @Composable
-fun Form2Screen(param: String?) {
+fun HomeScreen(param: String?) {
 
     val navController = rememberNavController()
 
@@ -61,7 +62,7 @@ fun Form2Screen(param: String?) {
                 NovaViagem()
             }
             composable("Viagens") {
-                Viagem()
+                Viagens()
             }
             composable("Sobre") {
                 Sobre()
